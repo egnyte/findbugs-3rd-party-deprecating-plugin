@@ -1,0 +1,6 @@
+class java.util.Class {
+	method1(java.util.Test) // method 1 reason
+	method2(java.t1.Test1,java.util.Test2) // method 2 reason
+	method3(   java.t1.Test1,    java.util.Test2  ) // method 3 reason
+	method4(   int,    java.util.Test2 [] [  ] []  ) // method 4 reason
+}

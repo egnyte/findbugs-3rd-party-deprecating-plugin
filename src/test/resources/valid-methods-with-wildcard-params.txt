@@ -1,0 +1,7 @@
+class java.package1.Class1 {
+	method1(...) // method reason
+}
+
+class java.package2.Class2 {
+	method2(  ...  ) // method reason
+}

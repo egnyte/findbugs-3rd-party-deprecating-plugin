@@ -1,0 +1,50 @@
+<MessageCollection>
+
+<!-- Plugin information -->
+    <Plugin>
+        <ShortDescription>FindBugs4Deprecating3rdParty plugin</ShortDescription>
+        <Details>
+            <![CDATA[
+            <p>This plugin allows to deprecate 3rd party classes, and reports errors when those are used.</p>
+            ]]>
+        </Details>
+    </Plugin>
+
+  <Detector class="com.egnyte.fbplugins.deprecated3rdpartyrules.Deprecated3rdPartyDetector" >
+    <Details>
+      <![CDATA[<p> This detector looks for uses of 3rd party code which you have marked as deprecated.
+        </p>]]>
+    </Details>
+  </Detector>
+
+
+  <BugPattern type="DEPRECATED_3RD_PARTY_CLASS">
+    <ShortDescription>Use of a 3rd party class which is declared as deprecated</ShortDescription>
+
+    <LongDescription>{0} makes use of a 3rd party class which has been declared as deprecated. The reason of {4} deprecation: "{4.reason}".</LongDescription>
+
+	<Details>
+	  <![CDATA[<p>
+	    A 3rd party class which has been deprecated is being used here. Refactor the code to remove references to any deprecated class(es).
+	  ]]>
+	</Details>
+  </BugPattern>
+
+  <BugCode abbrev="DEP_CLASS">Use of a 3rd party class which is declared as deprecated</BugCode>
+  
+  <BugPattern type="DEPRECATED_3RD_PARTY_METHOD">
+    <ShortDescription>Use of a 3rd party method which is declared as deprecated</ShortDescription>
+
+    <LongDescription>{0} makes use of a 3rd party method which has been declared as deprecated. The reason of {4} deprecation: "{4.reason}".</LongDescription>
+
+	<Details>
+	  <![CDATA[<p>
+	    A 3rd party class which has been deprecated is being used here. Refactor the code to remove references to any deprecated class(es).
+	  ]]>
+	</Details>
+  </BugPattern>
+
+  <BugCode abbrev="DEP_METHOD">Use of a 3rd party method which is declared as deprecated</BugCode>
+  
+</MessageCollection>
+

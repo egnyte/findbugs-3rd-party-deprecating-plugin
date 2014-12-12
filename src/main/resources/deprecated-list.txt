@@ -1,0 +1,27 @@
+class java.util.TimeZone {
+	getDefault() //reliance on default timezone
+}
+class java.util.Calendar {
+	Calendar() //reliance on default timezone
+	getInstance() //reliance on default timezone
+	getInstance(java.util.Locale) //reliance on default timezone
+}
+class org.joda.time.DateTimeZone {
+	getDefault() //reliance on default timezone
+}
+class org.joda.time.base.BaseDateTime {
+	BaseDateTime() //reliance on default timezone
+	BaseDateTime(int, int, int, int, int, int, int) //reliance on default timezone
+	BaseDateTime(long) //reliance on default timezone
+}
+class org.joda.time.DateTime {
+	DateTime()  //reliance on default timezone
+	DateTime(int, int, int, int, int)  //reliance on default timezone
+	DateTime(int, int, int, int, int, int)  //reliance on default timezone
+	DateTime(int, int, int, int, int, int, int)  //reliance on default timezone
+	DateTime(long instant)  //reliance on default timezone
+	now()  //reliance on default timezone
+}
+class java.nio.charset.Charset {
+	defaultCharset() //reliance on default encoding
+}

@@ -1,0 +1,4 @@
+class java.util.Class1 {
+	method1(java.util.Test) // method1
+	method2(java.t1.Test1,java.util.Test2) // method2
+	method3(   int,    java.util.Test2  ) // method3

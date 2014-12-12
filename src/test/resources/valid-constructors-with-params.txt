@@ -1,0 +1,6 @@
+class java.util.Class {
+	Class(java.util.Test) // constructor 1 reason
+	Class(java.t1.Test1,java.util.Test2) // constructor 2 reason
+	Class(   java.t1.Test1,    java.util.Test2  ) // constructor 3 reason
+	Class(   int,    java.util.Test2 [] [  ] []  ) // constructor 4 reason
+}

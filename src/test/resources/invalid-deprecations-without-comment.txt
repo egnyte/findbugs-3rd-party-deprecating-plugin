@@ -1,0 +1,5 @@
+package java.test
+class java.lang.Throwable example bug with class
+class java.util.TimeZone {
+	getDefault() // 
+}

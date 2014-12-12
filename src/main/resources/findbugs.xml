@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<FindbugsPlugin xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" defaultenabled="true" >
+
+  <Detector class="com.egnyte.fbplugins.deprecated3rdpartyrules.Deprecated3rdPartyDetector" speed="fast" />
+  
+  <BugPattern type="DEPRECATED_3RD_PARTY_CLASS" abbrev="DEP_CLASS" category="CORRECTNESS" />
+  <BugPattern type="DEPRECATED_3RD_PARTY_METHOD" abbrev="DEP_METHOD" category="CORRECTNESS" />
+
+</FindbugsPlugin>
+
