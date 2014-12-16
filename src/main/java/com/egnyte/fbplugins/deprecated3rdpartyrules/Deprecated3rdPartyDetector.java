@@ -5,7 +5,6 @@ import java.util.List;
 import lombok.Getter;
 
 import com.egnyte.fbplugins.deprecated3rdpartyrules.model.deprecation.Deprecation;
-import com.egnyte.fbplugins.deprecated3rdpartyrules.settings.DeprecationSettings;
 import com.egnyte.fbplugins.settings.SetupChecker;
 
 import edu.umd.cs.findbugs.BugReporter;
@@ -15,21 +14,13 @@ import edu.umd.cs.findbugs.bcel.OpcodeStackDetector;
 public class Deprecated3rdPartyDetector extends OpcodeStackDetector {
     public static final String DETECTOR_NAME = Deprecated3rdPartyDetector.class.getSimpleName();
 
-    static {
-        System.out.printf("Registered plugin detector [%s]%n", DETECTOR_NAME);
-    }
-
     private final BugReporter bugReporter;
 
     private final List<Deprecation> deprecationList;
 
-    public Deprecated3rdPartyDetector(BugReporter bugReporter) {
-        this(bugReporter, SetupChecker.getInstance().getSettings().getDeprecatedSettings());
-    }
-
-    public Deprecated3rdPartyDetector(BugReporter bugReporter, DeprecationSettings deprecatedSettings) {
+    public Deprecated3rdPartyDetector(BugReporter bugReporter) throws Exception {
         this.bugReporter = bugReporter;
-        this.deprecationList = deprecatedSettings.getDeprecations();
+        this.deprecationList = new SetupChecker().getSettings().getDeprecatedSettings().getDeprecations();
     }
 
     @Override

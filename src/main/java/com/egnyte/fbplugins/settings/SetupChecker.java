@@ -1,9 +1,12 @@
 package com.egnyte.fbplugins.settings;
 
 import static com.egnyte.fbplugins.deprecated3rdpartyrules.Deprecated3rdPartyDetector.DETECTOR_NAME;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+
 import lombok.Getter;
 
-import com.egnyte.fbplugins.deprecated3rdpartyrules.model.deprecation.Deprecation;
 import com.egnyte.fbplugins.deprecated3rdpartyrules.settings.DeprecatedListParseError;
 import com.egnyte.fbplugins.deprecated3rdpartyrules.settings.DeprecationSettings;
 import com.egnyte.fbplugins.deprecated3rdpartyrules.settings.DeprecationSettingsLoader;
@@ -11,30 +14,14 @@ import com.egnyte.fbplugins.deprecated3rdpartyrules.settings.DeprecationSettings
 import edu.umd.cs.findbugs.ba.AnalysisContext;
 
 public class SetupChecker {
-
-    private static final String DEPRECATED_LIST_RESOURCE_PATH = "/deprecated-list.txt";
-
-    private static class SetupCheckerHolder {
-        public static final SetupChecker instance;
-        static {
-            try {
-                instance = new SetupChecker();
-            } catch (Exception e) {
-                throw new RuntimeException(e);
-            }
-        }
-    }
-
-    public static SetupChecker getInstance() {
-        return SetupCheckerHolder.instance;
-    }
+    private static final String DEPRECATED_LIST_NAME = "deprecated-list.txt";
 
     @Getter
     private final Settings settings;
 
     private final DeprecationSettingsLoader settingsLoader;
 
-    private SetupChecker() throws Exception {
+    public SetupChecker() throws Exception {
         this.settingsLoader = new DeprecationSettingsLoader();
         this.settings = initSettings(settingsLoader);
     }
@@ -47,24 +34,10 @@ public class SetupChecker {
     }
 
     private DeprecationSettings initDeprecatedSettings(DeprecationSettingsLoader settingsLoader) throws Exception {
-        System.out.printf("[%s] Will try to load from [%s].%n", DETECTOR_NAME, DEPRECATED_LIST_RESOURCE_PATH);
-
-        DeprecationSettings settings = null;
-        settings = settingsLoader.settingsFromResource(DEPRECATED_LIST_RESOURCE_PATH);
-
-        if (!checkAndLogErrors(settings)) {
-            logFoundDeprecations(settings);
-        }
+        DeprecationSettings settings = settingsLoader.settingsFromTxtFile(getPathToDeprecatedList());
+        checkAndLogErrors(settings);
 
         return settings;
-    }
-
-    private void logFoundDeprecations(DeprecationSettings settings) {
-        System.out.printf("[%s] Searching for deprecated classes:%n", DETECTOR_NAME);
-
-        for (Deprecation deprecation : settings.getDeprecations()) {
-            System.out.printf("[%s] %s%n", DETECTOR_NAME, deprecation.toString());
-        }
     }
 
     private boolean checkAndLogErrors(DeprecationSettings settings) {
@@ -78,5 +51,17 @@ public class SetupChecker {
             return true;
         }
         return false;
+    }
+
+    private String getPathToDeprecatedList() throws FileNotFoundException {
+        File parentDirectory = new File(SetupChecker.class.getProtectionDomain().getCodeSource()
+                .getLocation().getFile()).getParentFile();
+        File deprecatedList = new File(parentDirectory, DEPRECATED_LIST_NAME);
+        if (!deprecatedList.exists()) {
+            AnalysisContext.logError(String.format(
+                    "[%s] deprecated-list.txt file does not exist. It should be placed in the same directory as the plugin.",
+                    DETECTOR_NAME));
+        }
+        return deprecatedList.getPath();
     }
 }
