@@ -31,17 +31,17 @@ Our plugin provides methods, constructors, and whole classes deprecation. Furthe
 
 To deprecate any usage of specified class, the following format is supported:
 
-```javascript
+```java
 class [package.name].[ClassName] // the reason of [package.name].[ClassName] deprecation
 ```
 
 for instance:
-```javascript
+```
 class org.xml.sax.HandlerBase // This class works with the deprecated DocumentHandler interface. It has been replaced by the SAX2 DefaultHandler class.
 ```
 
 To deprecate any usage of method or constructor, you should use following format:
-```javascript
+```
 class [package.name].[ClassName] {
 	...
 	[methodName or ConstructorName]([parameters]) // the reason of [package.name].[ClassName].[methodName or ConstructorName]([parameters]) method deprecation
@@ -51,7 +51,7 @@ class [package.name].[ClassName] {
 The clause `class [package.name].[ClassName] { ... }` represents methods block definition and you can include in it any number of methods definition.
  
 You can deprecate methods or constructors with specified parameters, for instance:
-```javascript
+```
 class javax.management.MBeanServer {
 	deserialize(String, byte[]) // Use MBeanServer.getClassLoaderRepository() to obtain the class loader repository and use it to deserialize.
 }
@@ -65,7 +65,7 @@ class java.sql.Date {
 ```
 
 You can also deprecate methods or constructors with any parameter:
-```javascript
+```
 class java.awt.List {
 	addItem(...) // Replaced by add methods
 }
