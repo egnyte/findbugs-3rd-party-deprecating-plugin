@@ -31,7 +31,7 @@ Our plugin provides methods, constructors, and whole classes deprecation. Furthe
 
 To deprecate any usage of specified class, the following format is supported:
 
-```java
+```
 class [package.name].[ClassName] // the reason of [package.name].[ClassName] deprecation
 ```
 
