@@ -6,14 +6,14 @@ This is a findbugs plugin, which provides third-party classes and methods deprec
 
 ## Why you should use our plugin ##
 
-* you can mark 3-rd party classes or methods as deprecated, which is not possible using @Deprecated annotation,
-* the list with deprecated classes or methods can be simply configure by an user using an intuitive format. Additionally, the user of the plugin can define the reason of method of class deprecation, so an information about deprecated classes or methods may propagates between programmers,
+* you can mark 3rd party classes or methods as deprecated, which is not possible using @Deprecated annotation,
+* the list with deprecated classes or methods can be configured by the user using an intuitive format; additionally, the user of the plugin can define the reason of method or class deprecation, so an information about deprecated classes or methods may propagates between programmers,
 * usage of deprecation is marked as an issue in Sonar, so it is always visible that someone has used some deprecated class or method and it does not disappear in the code.
 
 ## Installation ##
 
-To install the plugin in your Sonar you need to put following files into Sonar extensions directory (`/extensions/rules/findbugs` for 3.7.x Sonar versions):
-* jar file of this plugin which you can generate using Maven,
+To install the plugin in your Sonar you need to put following files into Sonar `extensions` directory (`/extensions/rules/findbugs` for 3.7.x Sonar versions):
+* jar file with this plugin, built with Maven,
 * rules.xml file attached to this repository,
 * and deprecated-list.txt file which contains list of deprecated classes or methods (you can find sample deprecated-list.txt file in this repo or read more in [deprecated list format](#deprecated-list-format) section)
 
@@ -25,7 +25,7 @@ Default severity of these rules is critical, so if you want to change that, you 
 
 ## Features ##
 
-Our plugin provides methods, constructors, and whole classes deprecation. Furthermore, you can deprecate methods with specified list of parameters. The plugin supports also wildcard parameters matching.
+Our plugin provides methods, constructors, and whole classes deprecation. Furthermore, you can deprecate methods with specified list of parameters. The plugin also supports wildcard parameters matching.
 
 ## Deprecated list format ##
 
