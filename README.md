@@ -1,27 +1,14 @@
-# Findbugs 3rd-party deprecating plugin Readme #
+# Findbugs 3rd-party deprecating plugin #
 
 ## Description ##
 
 This is a findbugs plugin, which provides third-party classes and methods deprecation. Deprecated classes and methods can be simple defined by an user, so it can be tailored to your needs. The plugin can be also added as a new rule in your Sonar.
 
-## Why you should use our plugin ##
+## Usage ##
 
-* you can mark 3rd party classes or methods as deprecated, which is not possible using @Deprecated annotation,
+* you can mark 3rd party classes or methods as deprecated, which is not possible using `@Deprecated` annotation,
 * the list with deprecated classes or methods can be configured by the user using an intuitive format; additionally, the user of the plugin can define the reason of method or class deprecation, so an information about deprecated classes or methods may propagates between programmers,
 * usage of deprecation is marked as an issue in Sonar, so it is always visible that someone has used some deprecated class or method and it does not disappear in the code.
-
-## Installation ##
-
-To install the plugin in your Sonar you need to put following files into Sonar `extensions` directory (`/extensions/rules/findbugs` for 3.7.x Sonar versions):
-* jar file with this plugin, built with Maven,
-* rules.xml file attached to this repository,
-* and deprecated-list.txt file which contains list of deprecated classes or methods (you can find sample deprecated-list.txt file in this repo or read more in [deprecated list format](#deprecated-list-format) section)
-
-You should remember to activate rules in the quality profile used for your project. To do that, click on Quality Profiles in Sonar main menu and then search for following rules by key:
-* DEPRECATED_3RD_PARTY_CLASS - rule for class deprecation,
-* DEPRECATED_3RD_PARTY_METHOD - rule for methods and constructors deprecation.
-
-Default severity of these rules is critical, so if you want to change that, you can configure it also in Quality Profiles page.
 
 ## Features ##
 
@@ -72,11 +59,24 @@ class java.awt.List {
 ```
 Please make sure to keep new lines in a similar way to described in above examples.
 
+## Sonar installation ##
+
+To install the plugin in your Sonar you need to put following files into Sonar `extensions` directory (`/extensions/rules/findbugs` for 3.7.x Sonar versions):
+* jar file with this plugin, built with Maven,
+* rules.xml file attached to this repository,
+* and deprecated-list.txt file which contains list of deprecated classes or methods (you can find sample deprecated-list.txt file in this repo or read more in [deprecated list format](#deprecated-list-format) section)
+
+You should remember to activate rules in the quality profile used for your project. To do that, click on Quality Profiles in Sonar main menu and then search for following rules by key:
+* DEPRECATED_3RD_PARTY_CLASS - rule for class deprecation,
+* DEPRECATED_3RD_PARTY_METHOD - rule for methods and constructors deprecation.
+
+Default severity of these rules is critical, so if you want to change that, you can configure it also in Quality Profiles page.
+
 ## Creators ##
 
 * Jakub Wąsikowski (https://github.com/Mostesz)
 * Jakub Bocheński (https://github.com/jakub-bochenski)
 
 ## Licence ##
-Code and documentation copyright 2014 Egnyte, Inc. Code released under the MIT license.
+Code and documentation copyright 2014 Egnyte, Inc. Code and documentation released under the MIT license.
 [FindBugs4Deprecating3rdParty](https://github.com/Grundlefleck/FindBugs4Deprecating3rdParty) was the inspiration for this project.
