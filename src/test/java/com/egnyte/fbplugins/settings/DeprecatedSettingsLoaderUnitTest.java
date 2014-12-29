@@ -55,18 +55,11 @@ public class DeprecatedSettingsLoaderUnitTest {
 
     private static final String VALID_METHODS_WITH_WILDCARD_PARAMS = "/valid-methods-with-wildcard-params.txt";
 
-    private static final String TEST = "/deprecated-list.txt";
-
     private DeprecationSettingsLoader settingsLoader;
 
     @Before
     public void setUp() throws Exception {
         this.settingsLoader = new DeprecationSettingsLoader();
-    }
-
-    @Test
-    public void test() throws IOException {
-        getDeprecatedSettings(TEST);
     }
 
     @Test
