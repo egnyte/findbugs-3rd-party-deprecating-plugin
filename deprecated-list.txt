@@ -22,6 +22,9 @@ class org.joda.time.DateTime {
 	DateTime(long instant)  //reliance on default timezone
 	now()  //reliance on default timezone
 }
+class java.util.Date {
+	toString()	//reliance on default timezone
+}
 class java.nio.charset.Charset {
 	defaultCharset() //reliance on default encoding
 }
