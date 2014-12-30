@@ -63,7 +63,7 @@ Please make sure to keep new lines in a similar way to described in above exampl
 
 To install the plugin in your Sonar you need to put following files into Sonar `extensions` directory (`/extensions/rules/findbugs` for 3.7.x Sonar versions):
 * jar file with this plugin, built with Maven,
-* rules.xml file attached to this repository,
+* [rules.xml](http://jira.codehaus.org/browse/SONAR-1481?focusedCommentId=249529&page=com.atlassian.jira.plugin.system.issuetabpanels:comment-tabpanel#comment-249529) file attached to this repository,
 * and deprecated-list.txt file which contains list of deprecated classes or methods (you can find sample deprecated-list.txt file in this repo or read more in [deprecated list format](#deprecated-list-format) section)
 
 You should remember to activate rules in the quality profile used for your project. To do that, click on Quality Profiles in Sonar main menu and then search for following rules by key:
